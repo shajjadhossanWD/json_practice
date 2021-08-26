@@ -48,4 +48,19 @@ function getAlbum(albums){
     }
 }
 
-
+function getPhotos(){
+    fetch('https://jsonplaceholder.typicode.com/photos')
+    .then(res => res.json())
+    .then(data => photo(data));
+}
+function photo(images){
+    const img = document.getElementById('images')
+    for(const image of images ){
+        const div = document.createElement('img');
+        div.classList.add('imgCls');
+        div.src = image.url
+        img.appendChild(div);
+    }
+}
+// curd vs rest api 
+// get vs post 
